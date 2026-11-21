@@ -1,20 +1,34 @@
-# Bot Land
+# ![Bot Land](docs/readme/banner.svg)
 
-Bot Land is a web dashboard and GraphQL service for managing messaging bots.
+A dashboard and GraphQL service for managing messaging bots. The service provisions Telegram runtimes on Railway. The WhatsApp provider directory is reserved for future work.
 
-| Directory | Role |
+[Quick start](#quick-start) · [Validation](#validation) · [Project layout](#project-layout)
+
+## Quick start
+
+Use pnpm 8 with the original lockfiles. In each of `client/`, `service/`, and `providers/telegram/`, run `pnpm install --frozen-lockfile`.
+
+| Component | Start command | Local settings |
+|---|---|---|
+| Client | `pnpm dev` | `VITE_BACKEND_SERVICE_URL` |
+| Service | `pnpm build`, then `pnpm start` | `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` for persistence |
+| Telegram | `pnpm build`, then `pnpm start` | `TELEGRAM_BOT_TOKEN` |
+
+Railway provisioning also uses `RAILWAY_API_URL`, `RAILWAY_API_TOKEN`, `RAILWAY_PROJECT`, `RAILWAY_ENV`, and `GITHUB_REPOSITORY`. Keep credentials in local or hosted environment settings and put the GraphQL service behind access controls.
+
+## Validation
+
+Run `pnpm build` in all three packages. These builds work independently of a live bot deployment.
+
+## Project layout
+
+| Path | Purpose |
 | --- | --- |
-| [client/](client/) | React and Vite dashboard |
-| [service/](service/) | GraphQL API and Railway provisioning |
-| [providers/telegram/](providers/telegram/) | Telegram bot runtime |
-| [providers/wa/](providers/wa/) | WhatsApp provider placeholder |
+| [`client/`](client/) | Dashboard |
+| [`service/`](service/) | GraphQL API and provisioning |
+| [`providers/telegram/`](providers/telegram/) | Telegram runtime |
+| [`providers/wa/`](providers/wa/) | WhatsApp provider placeholder |
 
-With pnpm 8, install dependencies with `pnpm install --frozen-lockfile` in each of the three Node.js packages. The packages keep their own lockfiles.
+## Project notes
 
-- **Client.** Set `VITE_BACKEND_SERVICE_URL` to the GraphQL endpoint and run `pnpm dev`.
-- **Service.** Set `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` for persistence. Railway provisioning also uses `RAILWAY_API_URL`, `RAILWAY_API_TOKEN`, `RAILWAY_PROJECT`, `RAILWAY_ENV`, and `GITHUB_REPOSITORY`. Run `pnpm build` and `pnpm start`.
-- **Telegram.** Set `TELEGRAM_BOT_TOKEN` and run `pnpm build` and `pnpm start` from the provider directory.
-
-Keep credentials in local environment files or in the hosting platform's environment settings. The GraphQL service handles bot credentials and should run behind access controls.
-
-Existing Railway deployments need to be pointed at this repository and the appropriate service directory. When provisioning a Telegram deployment from this repository, use `/providers/telegram` as its root directory.
+Configure each Railway service with its component directory. Use `/providers/telegram` as the root for Telegram deployments.
