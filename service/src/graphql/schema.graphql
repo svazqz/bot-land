@@ -1,0 +1,23 @@
+type Bot {
+  id: ID!
+  name: String!
+  description: String!
+  flow: String!
+  token: String!
+}
+
+type Query {
+  getBots: [Bot]
+  getBot(id: ID!): Bot
+}
+
+type Mutation {
+  createBot(
+    name: String!
+    description: String!
+    flow: String!
+    token: String!
+  ): Bot!
+  updateBot(description: String!, flow: String!): Bot!
+  deleteBot(id: ID!): ID!
+}

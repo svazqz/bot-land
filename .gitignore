@@ -1,0 +1,45 @@
+# Local credentials and key material
+.env
+.env.*
+.envrc
+.dev.vars
+.npmrc
+.netrc
+*.pem
+*.key
+*.p12
+*.pfx
+*.kdbx
+*.sqlite
+*.sqlite3
+*.db
+
+# Dependencies, build output, and caches
+node_modules/
+dist/
+tmp/
+out-tsc/
+coverage/
+typings/
+.next/
+.nx/cache/
+.sass-cache/
+*.tsbuildinfo
+*.log
+connect.lock
+
+# Editors and operating systems
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+**/.vscode/*
+!**/.vscode/settings.json
+!**/.vscode/tasks.json
+!**/.vscode/launch.json
+!**/.vscode/extensions.json
+.DS_Store
+Thumbs.db
