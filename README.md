@@ -2,6 +2,8 @@
 
 A dashboard and GraphQL service for managing messaging bots. The service provisions Telegram runtimes on Railway. The WhatsApp provider directory is reserved for future work.
 
+[![Validation](https://github.com/svazqz/bot-land/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/svazqz/bot-land/actions/workflows/ci.yml)
+
 [Quick start](#quick-start) · [Validation](#validation) · [Project layout](#project-layout)
 
 ## Quick start
