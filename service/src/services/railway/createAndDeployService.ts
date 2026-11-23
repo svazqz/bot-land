@@ -56,15 +56,15 @@ export async function createAndDeployService(
           serviceInstanceDeploy: boolean;
         };
       } & { errors: any } = (await deployServiceResponse.json()) as any;
-      if (deployServiceResponse.ok && deployServiceData.data) {
+      if (deployServiceResponse.ok && deployServiceData.data?.serviceInstanceDeploy === true) {
         console.log(
           'Deployment status:',
           deployServiceData.data.serviceInstanceDeploy,
         );
+        return serviceId;
       } else {
         console.error('Failed to deploy service:', deployServiceData.errors);
       }
-      return serviceId;
     } else {
       console.error('Failed to create service:', createServiceData.errors);
     }
