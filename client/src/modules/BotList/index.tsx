@@ -9,7 +9,7 @@ const BotListContainer = () => {
   }
 
   if (error || !data) {
-    return <div>ERROR</div>;
+    return <div role="alert">Could not load bots.</div>;
   }
 
   return <BotList data={data} />;
