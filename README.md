@@ -34,3 +34,7 @@ Run `pnpm build` in all three packages. These builds work independently of a liv
 ## Project notes
 
 Configure each Railway service with its component directory. Use `/providers/telegram` as the root for Telegram deployments.
+
+## License
+
+Original project code is available under the [MIT License](LICENSE). Third-party components retain their own terms.
